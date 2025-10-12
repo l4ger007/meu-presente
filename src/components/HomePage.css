@@ -1,0 +1,33 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #fce4ec; /* Um rosa bem clarinho */
+  color: #444;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  color: #c2185b; /* Um tom de rosa mais forte */
+}
+
+.home-container button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #ff4081; /* Rosa vibrante */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.home-container button:hover {
+  transform: scale(1.05);
+  background-color: #f50057;
+}
