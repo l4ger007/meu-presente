@@ -49,3 +49,20 @@
   color: #f0f0f0; /* Cor do texto, um branco suave */
   font-family: 'Courier New', Courier, monospace; /* Fonte estilo máquina de escrever! */
 }
+.proposal-button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #1a1a1a;
+  background-color: #f0f0f0;
+  border: 2px solid #ff4081;
+  border-radius: 50px;
+  cursor: pointer;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

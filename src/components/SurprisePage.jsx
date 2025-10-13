@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react'; 
+import { useNavigate } from 'react-router-dom'; 
 
 // Importando o Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -8,12 +9,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-// 1. IMPORTANDO A NOVA BIBLIOTECA
+// IMPORTANDO A NOVA BIBLIOTECA
 import { TypeAnimation } from 'react-type-animation';
 
 // Importando nossos arquivos
 import './SurprisePage.css';
-import foto1 from '../assets/images/foto1.jpg'; // Altere se o nome/formato for diferente
+import foto1 from '../assets/images/foto1.jpg';
 import foto2 from '../assets/images/foto2.jpg';
 import foto3 from '../assets/images/foto3.jpg';
 import foto4 from '../assets/images/foto4.jpg';
@@ -24,6 +25,8 @@ const photos = [foto1, foto2, foto3, foto4, foto5];
 
 function SurprisePage() {
   const audioRef = useRef(null);
+  const navigate = useNavigate();
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -59,12 +62,10 @@ function SurprisePage() {
       </Swiper>
 
       <div className="text-area">
-        {/* 2. ADICIONANDO O COMPONENTE DE TEXTO ANIMADO */}
         <TypeAnimation
           sequence={[
-            // A animação começa aqui
             'Meu amor...',
-            2000, // Pausa de 2 segundos
+            2000,
             'Desde o momento em que te conheci, tudo mudou.',
             2000,
             'Cada foto sua é um pedaço do universo de tão linda',
@@ -74,15 +75,25 @@ function SurprisePage() {
             'Você é a minha alegria, minha parceira e meu porto seguro.',
             2500,
             'Eu te quero mais do que as palavras podem expressar. ❤️',
-            // A animação termina aqui
+            // A animação agora chama a função para mostrar o botão
+            () => {
+              setShowButton(true);
+            }
           ]}
-          wrapper="p" // O texto será renderizado dentro de uma tag <p>
-          cursor={true} // Mostra o cursor de digitação
-          speed={50} // Velocidade da digitação
-          style={{ fontSize: '1.5em', textAlign: 'center' }} // Estilo do texto
-          repeat={0} // Faz a animação acontecer apenas uma vez
+          wrapper="p"
+          cursor={true}
+          speed={50}
+          style={{ fontSize: '1.5em', textAlign: 'center' }}
+          repeat={0}
         />
       </div>
+      
+      {/* BOTÃO QUE APARECERÁ NO FINAL */}
+      {showButton && (
+        <button className="proposal-button" onClick={() => navigate('/pedido')}>
+          Tenho mais uma pergunta...
+        </button>
+      )}
     </div>
   );
 }
